@@ -1,0 +1,49 @@
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Searcher</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<!-- Barra de navegación -->
+    <div class="topnav">
+        <a class="active" href="#home">Meme Searcher</a>
+        <a href="#about">About Us</a>
+    </div>
+<!-- Fin navbar -->
+
+<!-- Form memes to search -->
+    <div class="main-block">
+      <h1 id="titulito">Buscador de Memes</h1>
+      <form action="{% url 'home' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+            <div class="btn-block">
+              <p><a href="https://quantika14.com/politicas-de-privacidad/">Privacy Policy for Quantika14</a>.</p>
+              <button type="submit" href="">Search</button>
+            </div>
+      </form>
+    </div>
+    <!-- End form memes -->
+
+    <!-- Grid para las fotos -->
+    {% block content %}
+     <div class="grid-container">
+         {% for i in word %}
+        <div class="grid-item"><img id="foto" alt="sample" src="data:image/png;base64,{{ i }}"></div>
+         {% endfor %}
+     </div>
+    {% endblock %}
+    <!-- Fin grid fotos -->
+
+
+    <footer class="footer">
+        <p style="margin-top:20px;">Author: Óscar Arauz y Alfonso Gonzalez<br>
+        <a href="mailto:info@quantika14.com">info@quantika14.com</a></p>
+    </footer>
+
+
+</body>
+</html>

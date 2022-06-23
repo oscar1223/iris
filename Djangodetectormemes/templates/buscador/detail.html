@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+            <label for="fname">Palabra:</label>
+            <input type="text" name="choice" id="palabra">
+            <label for="fname">Source:</label>
+            <select name="cars" id="cars">
+                <option value="twitter">Twitter</option>
+                <option value="instagram">Instagram</option>
+                <option value="reddit">Reddit</option>
+                <option value="telegram">Telegram</option>
+            </select>
+
+<input type="submit" value="Buscar">
+</form>
+</body>
+</html>
